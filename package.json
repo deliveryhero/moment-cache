@@ -14,7 +14,8 @@
   },
   "main": "./moment-cache.js",
   "dependencies": {
-    "moment": "~2.15.0"
+    "moment": "2.19.2",
+    "moment-timezone": "0.5.14"
   },
   "keywords": [
     "moment",

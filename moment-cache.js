@@ -6,7 +6,7 @@ var version = '0.1.3';
 var initial = typeof moment !== 'undefined' ? moment : null;
 
 if (typeof require !== 'undefined' && (typeof moment === 'undefined' || moment === null)) {
-  initial = require('moment') || initial;
+  initial = require('moment-timezone') || initial;
 }
 
 (function (moment, scope) {
@@ -88,7 +88,7 @@ if (typeof require !== 'undefined' && (typeof moment === 'undefined' || moment =
   getCache.updateStorage = function (storage) {
     if (storage == null && _prevCache) {
       storage = _prevCache;
-    };
+    }
     initCache({ storage: storage });
     return getCache;
   };
