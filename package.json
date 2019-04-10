@@ -15,7 +15,7 @@
     "prepublish": "npm run build",
     "watch": "babel ./lib --watch --ignore moment --out-file moment-cache.js"
   },
-  "main": "./moment-cache.js",
+  "main": "./lib/index.js",
   "dependencies": {
     "moment": "2.19.2",
     "moment-timezone": "0.5.14"
