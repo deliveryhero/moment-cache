@@ -2,7 +2,7 @@
   "name": "@logistics/moment-cache",
   "description": "Simple utility to cache moment.js instances.",
   "author": "Artem Yavorsky",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "repository": {
     "type": "git",
     "url": "git@github.com:yavorsky/moment-cache.git"
@@ -15,10 +15,10 @@
     "prepublish": "npm run build",
     "watch": "babel ./lib --watch --ignore moment --out-file moment-cache.js"
   },
-  "main": "./lib/index.js",
+  "main": "./moment-cache.js",
   "dependencies": {
-    "moment": "2.19.2",
-    "moment-timezone": "0.5.14"
+    "moment": "2.24.0",
+    "moment-timezone": "0.5.23"
   },
   "keywords": [
     "moment",
