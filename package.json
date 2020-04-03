@@ -1,5 +1,5 @@
 {
-  "name": "@deliveryhero/moment-cache",
+  "name": "@deliveryhero/logistics-moment-cache",
   "description": "Simple utility to cache moment.js instances.",
   "version": "0.1.6",
   "repository": "git://github.com/deliveryhero/moment-cache.git",
