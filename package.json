@@ -1,14 +1,10 @@
 {
-  "name": "@logistics/moment-cache",
+  "name": "@deliveryhero/moment-cache",
   "description": "Simple utility to cache moment.js instances.",
-  "author": "Artem Yavorsky",
-  "version": "0.1.5",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:yavorsky/moment-cache.git"
-  },
+  "version": "0.1.6",
+  "repository": "git://github.com/deliveryhero/moment-cache.git",
   "publishConfig": {
-    "registry": "https://nexus.usehurrier.com/repository/logistics-npm-private/"
+    "registry": "https://npm.pkg.github.com/deliveryhero"
   },
   "scripts": {
     "build": "babel ./lib --ignore moment --out-file moment-cache.js",
