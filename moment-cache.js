@@ -72,7 +72,7 @@ if (typeof require !== 'undefined' && (typeof moment === 'undefined' || moment =
     var result = void 0;
     if (clone == null) clone = true;
     if (typeof format === 'boolean') clone = format;
-    var key = getKey(date);
+    var key = getKey(date, format);
     if (key) {
       result = getFromCache(key, clone) || addToCache(key, date, format, clone);
     } else {
