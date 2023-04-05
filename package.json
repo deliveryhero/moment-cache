@@ -1,7 +1,7 @@
 {
   "name": "@deliveryhero/logistics-moment-cache",
   "description": "Simple utility to cache moment.js instances.",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "repository": "git://github.com/deliveryhero/moment-cache.git",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/deliveryhero"
