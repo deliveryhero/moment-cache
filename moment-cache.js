@@ -40,7 +40,7 @@ if (typeof require !== "undefined" && (typeof moment === "undefined" || moment =
     if (dateType === "string") {
       var currentKey = new Date(date);
       if (format) {
-        return isNaN(currentKey) ? date : currentKey.toString();
+        return date + " " + format;
       } else {
         return currentKey.toString();
       }
