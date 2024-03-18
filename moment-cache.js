@@ -1,21 +1,21 @@
-'use strict';
+"use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var version = '0.1.3';
-var initial = typeof moment !== 'undefined' ? moment : null;
+var version = "0.1.3";
+var initial = typeof moment !== "undefined" ? moment : null;
 
-if (typeof require !== 'undefined' && (typeof moment === 'undefined' || moment === null)) {
-  initial = require('moment-timezone') || initial;
+if (typeof require !== "undefined" && (typeof moment === "undefined" || moment === null)) {
+  initial = require("moment-timezone") || initial;
 }
 
 (function (moment, scope) {
-  'use strict';
+  "use strict";
 
   if (scope == null) {
-    if (typeof self != 'undefined') {
+    if (typeof self != "undefined") {
       scope = self;
-    } else if (typeof root != 'undefined') {
+    } else if (typeof root != "undefined") {
       scope = root;
     }
   }
@@ -36,15 +36,15 @@ if (typeof require !== 'undefined' && (typeof moment === 'undefined' || moment =
   };
 
   var getKey = function getKey(date, format) {
-    var dateType = typeof date === 'undefined' ? 'undefined' : _typeof(date);
-    if (dateType === 'string') {
+    var dateType = typeof date === "undefined" ? "undefined" : _typeof(date);
+    if (dateType === "string") {
       var currentKey = new Date(date);
       if (format) {
         return isNaN(currentKey) ? date : currentKey.toString();
       } else {
         return currentKey.toString();
       }
-    } else if (dateType === 'number') {
+    } else if (dateType === "number") {
       var currentDate = new Date(date);
       return currentDate.toString();
     } else if (date instanceof Date) {
@@ -70,9 +70,16 @@ if (typeof require !== 'undefined' && (typeof moment === 'undefined' || moment =
 
   var getCache = function getCache(date, format, clone) {
     var result = void 0;
+    var useCache = true;
+    var regexp = new RegExp(/^(?:\d{4})(?:-(0?[1-9]|1[0-2]))?$|^(?:\d{4})(?:-(0?[1-9]|1[0-2]))(?:-(0?[1-9]|1[0-9]|2[0-9]|3[01]))?$/);
+    var key = null;
+
     if (clone == null) clone = true;
-    if (typeof format === 'boolean') clone = format;
-    var key = getKey(date, format);
+    if (typeof format === "boolean") clone = format;
+    if (typeof date === "string") if (regexp.test(date)) useCache = false;
+    if (useCache) {
+      key = getKey(date, format);
+    }
     if (key) {
       result = getFromCache(key, clone) || addToCache(key, date, format, clone);
     } else {
@@ -97,5 +104,5 @@ if (typeof require !== 'undefined' && (typeof moment === 'undefined' || moment =
 
   var momentCache = moment.fn.cache = getCache;
 
-  (typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = momentCache : typeof define === 'function' && define.amd ? define(momentCache) : scope != null ? scope.momentCache = momentCache : null;
+  (typeof exports === "undefined" ? "undefined" : _typeof(exports)) === "object" && typeof module !== "undefined" ? module.exports = momentCache : typeof define === "function" && define.amd ? define(momentCache) : scope != null ? scope.momentCache = momentCache : null;
 })(initial, undefined);
