@@ -10,21 +10,31 @@ During the app lifecycle we can call moment oftentimes. Every call is time. Time
 import moment from "moment";
 import cache from "moment-cache";
 
-const timeStamp = 628021800000;
 const momentCalls = 99999;
+const dateStringWithOffset = "2013-02-08 09+07:00";
+const timestamp = 628021800000;
+const dateString = "18-03-2024";
+const format = "DD-MM-YYYY";
 
-const check = (instance) => {
+const check = (instance, ...args) => {
   let i = 0;
   const start = new Date();
   while (i <= momentCalls) {
-    instance(timeStamp);
+    instance(...args);
     i++;
   }
   return new Date() - start;
 };
 
-console.log(check(moment)); // ~1035 ms
-console.log(check(cache)); // ~584 ms
+const cacheTimestamp = check(cache, timestamp); // ~33 ms
+const momentTimestamp = check(moment, timestamp); // ~41 ms
+
+const cacheDateString = check(cache, dateString, format); // ~60 ms
+const momentDateString = check(moment, dateString, format); // ~422 ms
+
+const cacheDateStringWithOffset = check(cache, dateStringWithOffset, format); // ~71 ms
+const momentDateStringWithOffset = check(moment, dateStringWithOffset, format); // ~408 ms
+
 ```
 
 ### Syntax:
