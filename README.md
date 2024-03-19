@@ -11,8 +11,11 @@ import moment from "moment";
 import cache from "moment-cache";
 
 const momentCalls = 99999;
-const dateStringWithOffset = "2013-02-08 09+07:00";
+const invalidDateStringWithOffset = "2013-02-08 09+07:00";
+const dateStringWithOffset = "2020-05-12T23:50:21.817Z";
 const timestamp = 628021800000;
+const timeStampDate = "1989-11-25T18:30:00.000Z";
+
 const dateString = "18-03-2024";
 const format = "DD-MM-YYYY";
 
@@ -26,14 +29,26 @@ const check = (instance, ...args) => {
   return new Date() - start;
 };
 
-const cacheTimestamp = check(cache, timestamp); // ~33 ms
-const momentTimestamp = check(moment, timestamp); // ~41 ms
+const cacheTimestamp = check(cache, timestamp); // ~42 ms
+const momentTimestamp = check(moment, timestamp); // ~49 ms
 
-const cacheDateString = check(cache, dateString, format); // ~60 ms
-const momentDateString = check(moment, dateString, format); // ~422 ms
+const cacheDateString = check(cache, dateString, format); // ~65 ms
+const momentDateString = check(moment, dateString, format); // ~390 ms
 
-const cacheDateStringWithOffset = check(cache, dateStringWithOffset, format); // ~71 ms
-const momentDateStringWithOffset = check(moment, dateStringWithOffset, format); // ~408 ms
+const cacheDateStringWithOffset = check(cache, dateStringWithOffset); // ~218 ms
+const momentDateStringWithOffset = check(moment, dateStringWithOffset); // ~777 ms
+
+const cacheInvalidDateStringWithOffset = check(
+  cache,
+  invalidDateStringWithOffset
+); // ~75 ms
+const momentInvalidDateStringWithOffset = check(
+  moment,
+  invalidDateStringWithOffset
+); // ~571 ms
+
+const cacheTimestampDate = check(cache, timeStampDate); // ~202 ms
+const momentTimestampDate = check(moment, timeStampDate); // ~755 ms
 
 ```
 
@@ -68,6 +83,6 @@ const anotherDate = cache(myDate, format); // rapidly retrieving previously proc
 import cachable from "moment-cache";
 const myStorage = {};
 cachable.updateStorage(myStorage);
-const date = cachable("2016-08-23");
-console.log(myStorage); // {1471899600000: Moment}
+const date = cachable("23-08-2016", "DD-MM-YYYY");
+console.log(myStorage); // {23-08-2016 DD-MM-YYYY: MomentObject}
 ```

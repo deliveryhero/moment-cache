@@ -45,7 +45,7 @@ if (typeof require !== "undefined" && (typeof moment === "undefined" || moment =
         return date + " " + format;
       } else {
         var currentKey = new Date(date);
-        return currentKey.toString();
+        return isNaN(currentKey) ? date : currentKey.toString();
       }
     } else if (dateType === "number") {
       return date;
