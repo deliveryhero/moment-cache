@@ -1855,8 +1855,8 @@ moment@^2.29.4:
 
 ms@0.7.1:
   version "0.7.1"
-  resolved "https://registry.npmjs.org/ms/-/ms-0.7.1.tgz"
-  integrity sha1-nNE8A62/8ltl7/3nzoZO6VIBcJg=
+  resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
+  integrity sha512-lRLiIR9fSNpnP6TC4v8+4OU7oStC01esuNowdQ34L+Gk8e5Puoc88IqJ+XAY/B3Mn2ZKis8l8HX90oU8ivzUHg==
 
 nan@^2.3.0:
   version "2.4.0"
