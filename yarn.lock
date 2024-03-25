@@ -1883,10 +1883,10 @@
     "through2" "^2.0.0"
     "xtend" "^4.0.0"
 
-"moment-timezone@0.5.44":
-  "integrity" "sha512-nv3YpzI/8lkQn0U6RkLd+f0W/zy/JnoR5/EyPz/dNkPTBjA2jNLCVxaiQ8QpeLymhSZvX0wCL5s27NQWdOPwAw=="
-  "resolved" "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.44.tgz"
-  "version" "0.5.44"
+"moment-timezone@0.5.45":
+  "integrity" "sha512-HIWmqA86KcmCAhnMAN0wuDOARV/525R2+lOLotuGFzn4HO+FH+/645z2wx0Dt3iDv6/p61SIvKnDstISainhLQ=="
+  "resolved" "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.45.tgz"
+  "version" "0.5.45"
   dependencies:
     "moment" "^2.29.4"
 
